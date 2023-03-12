@@ -2,8 +2,11 @@ package com.stolczmiklos.blog.domain;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Table(name = "post")
 public class PostEntity {
 
     @Id
@@ -28,6 +31,10 @@ public class PostEntity {
 
     @Column(name = "likes_num")
     private Long likesNumber;
+
+    @OneToMany(mappedBy = "post")
+    @OrderBy(value = "createdAt desc")
+    private List<CommentEntity> comments = new ArrayList<>();
 
     public PostEntity() {
     }
@@ -86,5 +93,13 @@ public class PostEntity {
 
     public void setLikesNumber(Long likesNumber) {
         this.likesNumber = likesNumber;
+    }
+
+    public List<CommentEntity> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<CommentEntity> comments) {
+        this.comments = comments;
     }
 }
