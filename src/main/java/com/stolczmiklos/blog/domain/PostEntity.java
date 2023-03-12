@@ -17,14 +17,17 @@ public class PostEntity {
     @Column(name = "text", columnDefinition = "text")
     private String text;
 
-    @Column(name = "imageUrl")
+    @Column(name = "image_url")
     private String imageUrl;
 
-    @Column(name = "videoUrl")
+    @Column(name = "video_url")
     private String videoUrl;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
+
+    @Column(name = "likes_num")
+    private Long likesNumber;
 
     public PostEntity() {
     }
@@ -75,5 +78,13 @@ public class PostEntity {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Long getLikesNumber() {
+        return likesNumber;
+    }
+
+    public void setLikesNumber(Long likesNumber) {
+        this.likesNumber = likesNumber;
     }
 }

@@ -12,7 +12,9 @@ Alap esetben az általad választott, legjobban ismert technológiákat alkalmaz
 reprezentálja a tudásodat, valamint a fejlesztési ismereteidet mind adatbázis, mind backend
 oldalon. Amennyiben az email kísérő szövegében szerepel konkrét technológia megjelölés,
 úgy azt tekintsd mérvadónak.
+
 Feladat leírás
+
 Az alkalmazás tudjon egy adatbázisból dolgozva usereket és hozzájuk tartozó feed-ket
 kezelni (Create, Read, Update, Delete) REST API-n keresztül. A feladat megoldásának csak
 opcionális része a UI készítése, de az API tervezését a frontend igények alapján kell
