@@ -22,7 +22,7 @@ public class CommentEntity {
     private LocalDateTime createdAt;
 
     @ManyToOne
-    private PostEntity post;
+    private FeedEntity feed;
 
     public CommentEntity() {
     }
@@ -59,11 +59,11 @@ public class CommentEntity {
         this.createdAt = createdAt;
     }
 
-    public PostEntity getPost() {
-        return post;
+    public FeedEntity getFeed() {
+        return feed;
     }
 
-    public void setPost(PostEntity post) {
-        this.post = post;
+    public void setFeed(FeedEntity feed) {
+        this.feed = feed;
     }
 }

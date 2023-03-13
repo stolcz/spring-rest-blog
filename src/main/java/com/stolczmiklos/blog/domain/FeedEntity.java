@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "post")
-public class PostEntity {
+@Table(name = "feed")
+public class FeedEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,11 +32,11 @@ public class PostEntity {
     @Column(name = "likes_num")
     private Long likesNumber;
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "feed")
     @OrderBy(value = "createdAt desc")
     private List<CommentEntity> comments = new ArrayList<>();
 
-    public PostEntity() {
+    public FeedEntity() {
     }
 
     public Long getId() {
