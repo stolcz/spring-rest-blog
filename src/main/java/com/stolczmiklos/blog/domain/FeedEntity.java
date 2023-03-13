@@ -29,9 +29,6 @@ public class FeedEntity {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @Column(name = "likes_num")
-    private Long likesNumber;
-
     @OneToMany(mappedBy = "feed")
     @OrderBy(value = "createdAt desc")
     private List<CommentEntity> comments = new ArrayList<>();
@@ -85,14 +82,6 @@ public class FeedEntity {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
-    }
-
-    public Long getLikesNumber() {
-        return likesNumber;
-    }
-
-    public void setLikesNumber(Long likesNumber) {
-        this.likesNumber = likesNumber;
     }
 
     public List<CommentEntity> getComments() {
