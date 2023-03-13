@@ -20,22 +20,19 @@ public class AccountEntity {
     private String email;
 
     @OneToMany(mappedBy = "account")
-    private List<FeedEntity> posts = new ArrayList<>();
+    private List<FeedEntity> feeds = new ArrayList<>();
 
     @OneToMany(mappedBy = "account")
     private List<CommentEntity> comments = new ArrayList<>();
 
-    @Enumerated(EnumType.STRING)
-    private Role role;
-
     private String password;
 
     @OneToMany(mappedBy = "account")
-    private List<RatingEntity> ratingEntities = new ArrayList<>();
+    private List<RatingEntity> ratings = new ArrayList<>();
 
     @OneToOne
     @JoinColumn
-    private Token token;
+    private TokenEntity token;
 
     private Boolean isConfirmed;
 
@@ -47,7 +44,6 @@ public class AccountEntity {
     public AccountEntity(SaveAccountRequest saveAccountRequest) {
         this.userName = saveAccountRequest.getUserName();
         this.email = saveAccountRequest.getEmail();
-        this.role = Role.ROLE_USER;
     }
 
     public Long getId() {
@@ -74,12 +70,12 @@ public class AccountEntity {
         this.email = email;
     }
 
-    public List<FeedEntity> getPosts() {
-        return posts;
+    public List<FeedEntity> getFeeds() {
+        return feeds;
     }
 
-    public void setPosts(List<FeedEntity> posts) {
-        this.posts = posts;
+    public void setFeeds(List<FeedEntity> feeds) {
+        this.feeds = feeds;
     }
 
     public List<CommentEntity> getComments() {
@@ -90,14 +86,6 @@ public class AccountEntity {
         this.comments = comments;
     }
 
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -106,19 +94,19 @@ public class AccountEntity {
         this.password = password;
     }
 
-    public List<RatingEntity> getRatingEntities() {
-        return ratingEntities;
+    public List<RatingEntity> getRatings() {
+        return ratings;
     }
 
-    public void setRatingEntities(List<RatingEntity> ratingEntities) {
-        this.ratingEntities = ratingEntities;
+    public void setRatings(List<RatingEntity> ratings) {
+        this.ratings = ratings;
     }
 
-    public Token getToken() {
+    public TokenEntity getToken() {
         return token;
     }
 
-    public void setToken(Token token) {
+    public void setToken(TokenEntity token) {
         this.token = token;
     }
 
