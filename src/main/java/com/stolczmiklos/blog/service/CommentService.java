@@ -27,7 +27,7 @@ public class CommentService {
     }
 
     public CommentEntity createComment(CommentCreationCommand command) {
-        FeedEntity feed = feedRepository.getOne(command.getFeedID());
+        FeedEntity feed = feedRepository.getById(command.getFeedID());
         CommentEntity comment = new CommentEntity(command.getAuthor(), command.getText(), feed);
 
         return commentRepository.save(comment);

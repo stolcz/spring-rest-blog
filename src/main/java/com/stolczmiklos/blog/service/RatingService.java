@@ -34,8 +34,8 @@ public class RatingService {
 
     public RatingEntity createRating(RatingCreationCommand ratingCreationCommand, String accountName) {
         AccountEntity account = accountRepository.findByUserName(accountName);
-        CommentEntity comment = commentRepository.getOne(ratingCreationCommand.getCommentID());
-        FeedEntity feed = feedRepository.getOne(ratingCreationCommand.getFeedID());
+        CommentEntity comment = commentRepository.getById(ratingCreationCommand.getCommentID());
+        FeedEntity feed = feedRepository.getById(ratingCreationCommand.getFeedID());
         RatingEntity ratingEntity = new RatingEntity(account, comment, feed);
 
         return ratingRepository.save(ratingEntity);
@@ -52,10 +52,10 @@ public class RatingService {
 
     public List<RatingListItem> listRatingsByFeed(Long id, Long accountId) {
         List<RatingListItem> ratingListItems = new ArrayList<>();
-        FeedEntity feed = feedRepository.getOne(id);
+        FeedEntity feed = feedRepository.getById(id);
         List<RatingEntity> ratings = ratingRepository.findAllByFeedOrderByCreatedAtDesc(feed);
         for (RatingEntity rating : ratings) {
-            if(rating.getAccount().getId() == accountId){
+            if (rating.getAccount().getId() == accountId) {
                 ratingListItems.add(new RatingListItem(rating, feed.getId(), null));
             }
         }
@@ -65,10 +65,10 @@ public class RatingService {
 
     public List<RatingListItem> listRatingsByComment(Long id, Long accountId) {
         List<RatingListItem> ratingListItems = new ArrayList<>();
-        CommentEntity comment = commentRepository.getOne(id);
+        CommentEntity comment = commentRepository.getById(id);
         List<RatingEntity> ratings = ratingRepository.findAllByCommentOrderByCreatedAtDesc(comment);
         for (RatingEntity rating : ratings) {
-            if(rating.getAccount().getId() == accountId){
+            if (rating.getAccount().getId() == accountId) {
                 ratingListItems.add(new RatingListItem(rating, comment.getId(), null));
             }
         }

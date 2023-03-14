@@ -17,18 +17,18 @@ public class ConfigService {
     }
 
     public ConfigRequest getConfig() {
-        ConfigEntity config = configRepository.getOne(1L);
+        ConfigEntity config = configRepository.getById(1L);
 
         return new ConfigRequest(config);
     }
 
     public ConfigRequest getDefaultConfig() {
-        ConfigEntity config = configRepository.getOne(2L);
+        ConfigEntity config = configRepository.getById(2L);
         return new ConfigRequest(config);
     }
 
     public void save(ConfigRequest configRequest) {
-        ConfigEntity config = configRepository.getOne(1L);
+        ConfigEntity config = configRepository.getById(1L);
         config.setRegistrationConfirmation(configRequest.isRegistrationConfirmation());
         configRepository.save(config);
     }

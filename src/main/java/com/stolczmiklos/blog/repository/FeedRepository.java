@@ -9,6 +9,8 @@ import java.util.List;
 @Repository
 public interface FeedRepository extends JpaRepository<FeedEntity, Long> {
 
+    FeedEntity getById(Long feedID);
+
     List<FeedEntity> findAllByOrderByCreatedAtDesc();
 
 }
