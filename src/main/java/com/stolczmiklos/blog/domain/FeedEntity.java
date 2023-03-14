@@ -14,6 +14,9 @@ public class FeedEntity {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "author")
+    private String author;
+
     @Column(name = "title")
     private String title;
 
@@ -36,12 +39,28 @@ public class FeedEntity {
     public FeedEntity() {
     }
 
+    public FeedEntity(String author, String title, String text, String imageUrl, String videoUrl) {
+        this.author = author;
+        this.title = title;
+        this.text = text;
+        this.imageUrl = imageUrl;
+        this.videoUrl = videoUrl;
+    }
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getTitle() {
