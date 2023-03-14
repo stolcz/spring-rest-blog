@@ -27,6 +27,12 @@ public class CommentEntity {
     public CommentEntity() {
     }
 
+    public CommentEntity(String author, String text, FeedEntity feed) {
+        this.author = author;
+        this.text = text;
+        this.feed = feed;
+    }
+
     public Long getId() {
         return id;
     }
